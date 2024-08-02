@@ -1,0 +1,91 @@
+.pie-chart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  aspect-ratio: 2/1;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+.pie-chart-container ::-webkit-scrollbar {
+  background: none;
+  width: 3px;
+}
+.pie-chart-container ::-webkit-scrollbar-thumb {
+  background: rgb(209, 213, 219);
+  border-radius: 0;
+}
+.pie-chart-container .chart-title {
+  width: 100%;
+  font-weight: 600;
+  color: #4b5563;
+}
+.pie-chart-container .pie-chart {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.pie-chart-container .pie-chart .slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+}
+.pie-chart-container .middle-circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  top: 15%;
+  left: 15%;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background: #fff;
+  border-radius: 50%;
+}
+.pie-chart-container .middle-circle span {
+  text-transform: capitalize;
+}
+.pie-chart-container .pie-chart-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.25rem;
+  height: 100%;
+  aspect-ratio: 1;
+  overflow-y: scroll;
+  padding: 0 0.5rem;
+}
+.pie-chart-container .pie-chart-info-section div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+.pie-chart-container .pie-chart-info-section div .color {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.pie-chart-container .pie-chart-info-section div .secondary-key {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: auto;
+  text-transform: capitalize;
+}
+.pie-chart-container .pie-chart-info-section div .primary-key {
+  color: #4b5563;
+}/*# sourceMappingURL=pieChartStyle.css.map */

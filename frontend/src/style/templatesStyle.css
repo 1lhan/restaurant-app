@@ -1,0 +1,234 @@
+.custom-select {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.custom-select input[type=checkbox] {
+  display: none;
+}
+.custom-select input[type=checkbox]:checked ~ .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.custom-select input[type=checkbox]:checked ~ label {
+  border-color: #3b82f6;
+}
+.custom-select input[type=checkbox]:checked ~ label i {
+  transform: rotate(180deg);
+}
+.custom-select label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+}
+.custom-select label .state-value {
+  position: absolute;
+}
+.custom-select label .hidden {
+  visibility: hidden;
+}
+.custom-select label i {
+  transition: 0.4s;
+}
+.custom-select .options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+}
+.custom-select .options button {
+  border: 0;
+  background: none;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+.custom-select .options button:hover {
+  background: #e5e7eb;
+}
+.custom-select .options button:disabled {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.column-chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  aspect-ratio: 2/1;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #4b5563;
+}
+.column-chart-container .title {
+  font-weight: 600;
+}
+.column-chart-container .chart-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+  gap: 1rem;
+}
+.column-chart-container .chart-body .left-side-values {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.column-chart-container .chart-body .left-side-values .left-side-values-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+  padding: 0.5rem 0;
+}
+.column-chart-container .chart-body .left-side-values .left-side-values-inner div {
+  position: relative;
+  height: 20%;
+}
+.column-chart-container .chart-body .left-side-values .left-side-values-inner div span {
+  position: absolute;
+  z-index: 2;
+}
+.column-chart-container .chart-body .left-side-values .left-side-values-inner div span:nth-of-type(1) {
+  bottom: 100%;
+  right: 0;
+  transform: translateY(50%);
+}
+.column-chart-container .chart-body .left-side-values .left-side-values-inner div span:nth-of-type(2) {
+  top: 100%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.column-chart-container .chart-body .left-side-values .hidden-span {
+  visibility: hidden;
+}
+.column-chart-container .chart-body .chart-body-right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  gap: 1%;
+  padding: 0.5rem 0;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .value-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  flex: 1;
+  height: 100%;
+  z-index: 2;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .value-wrapper:hover .value {
+  background: #1d4ed8;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .value-wrapper .value {
+  width: 100%;
+  height: 100%;
+  background-color: #3b82f6;
+  border-radius: 0.25rem;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .chart-back-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 0;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .chart-back-lines .back-line {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-top: 1px dashed rgb(229, 231, 235);
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .chart-back-lines .back-line:nth-last-of-type(1) {
+  border-bottom: 1px dashed rgb(229, 231, 235);
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .tool-tip {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 0.5rem);
+  transform: translateX(-50%);
+  border-radius: 0.25rem;
+  background-color: #3b82f6;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .tool-tip .tool-tip-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .tool-tip .tool-tip-inner .tool-tip-arrow {
+  position: absolute;
+  z-index: 2;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(45deg);
+  width: 10%;
+  aspect-ratio: 1;
+  background-color: #3b82f6;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .tool-tip .tool-tip-inner div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  z-index: 3;
+}
+.column-chart-container .chart-body .chart-body-right-side .chart .tool-tip .tool-tip-inner div span:nth-of-type(2) {
+  font-weight: 600;
+}
+.column-chart-container .chart-body .chart-body-right-side .secondary-keys {
+  display: flex;
+  gap: 0.5rem;
+}
+.column-chart-container .chart-body .chart-body-right-side .secondary-keys span {
+  flex: 1;
+  text-align: center;
+}/*# sourceMappingURL=templatesStyle.css.map */

@@ -1,0 +1,258 @@
+@mixin flex($fd, $jc, $ai) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+$primary-blue: #3b82f6;
+$gray-font-color: #4b5563;
+$gray100: rgb(243, 244, 246);
+$gray150: rgb(236, 237, 240);
+$gray200: #e5e7eb;
+$gray300: rgb(209, 213, 219);
+$orange: #fb923c;
+$green: #34d399;
+$red: #ff6c6c;
+$boxShadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+
+// Custom Select
+
+.custom-select {
+    position: relative;
+    user-select: none;
+
+    input[type="checkbox"] {
+        display: none;
+
+        &:checked {
+            ~.options {
+                @include flex(column, flex-start, stretch);
+            }
+
+            ~label {
+                border-color: #3b82f6; // $primary-blue
+
+                i {
+                    transform: rotate(180deg)
+                }
+            }
+        }
+    }
+
+    label {
+        @include flex(row, space-between, center);
+        position: relative;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        border: 1px solid #e5e7eb; // $gray200
+        background: #fff;
+        cursor: pointer;
+
+        .state-value {
+            position: absolute;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        i {
+            transition: 0.4s;
+        }
+    }
+
+    .options {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: $boxShadow;
+
+        button {
+            border: 0;
+            background: none;
+            padding: 0.4rem 0.75rem;
+            cursor: pointer;
+
+            &:hover {
+                background: #e5e7eb; // $gray200
+            }
+
+            &:disabled {
+                color: #3b82f6; // $primary-blue
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// Column Chart
+
+.column-chart-container {
+    @include flex(column, flex-start, stretch);
+    width: 100%;
+    aspect-ratio: 2/1;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    color: #4b5563;
+
+    .title {
+        font-weight: 600; //$gray-font-color
+    }
+
+    .chart-body {
+        @include flex(row, flex-start, stretch);
+        height: 100%;
+        gap: 1rem;
+
+        .left-side-values {
+            @include flex(column, flex-start, stretch);
+
+            .left-side-values-inner {
+                @include flex(column, flex-start, stretch);
+                height: 100%;
+                padding: 0.5rem 0;
+
+                div {
+                    position: relative;
+                    height: 20%;
+
+                    span {
+                        position: absolute;
+                        z-index: 2;
+                    }
+
+                    span:nth-of-type(1) {
+                        bottom: 100%;
+                        right: 0;
+                        transform: translateY(50%);
+                    }
+
+                    span:nth-of-type(2) {
+                        top: 100%;
+                        right: 0;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            .hidden-span {
+                visibility: hidden;
+            }
+        }
+
+        .chart-body-right-side {
+            @include flex(column, flex-start, stretch);
+            width: 100%;
+            height: 100%;
+
+            .chart {
+                @include flex(row, space-between, flex-end);
+                position: relative;
+                width: 100%;
+                height: 100%;
+                gap: 1%;
+                padding: 0.5rem 0;
+
+                .value-wrapper {
+                    @include flex(row, center, flex-end);
+                    flex: 1;
+                    height: 100%;
+                    z-index: 2;
+
+                    &:hover {
+                        .value {
+                            background: #1d4ed8;
+                        }
+                    }
+
+                    .value {
+                        width: 100%;
+                        height: 100%;
+                        background-color: #3b82f6; // $primary-blue
+                        border-radius: 0.25rem;
+                    }
+                }
+
+                .chart-back-lines {
+                    @include flex(column, flex-start, center);
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0.5rem 0;
+
+                    .back-line {
+                        display: block;
+                        height: 100%;
+                        width: 100%;
+                        border-top: 1px dashed rgb(229, 231, 235); // $gray200
+
+                        &:nth-last-of-type(1) {
+                            border-bottom: 1px dashed rgb(229, 231, 235); // $gray200
+                        }
+                    }
+                }
+
+                .tool-tip {
+                    position: absolute;
+                    z-index: 3;
+                    top: calc(100% + 0.5rem);
+                    transform: translateX(-50%);
+                    border-radius: 0.25rem;
+                    background-color: #3b82f6; // $primary-blue
+
+                    .tool-tip-inner {
+                        @include flex(column, flex-start, stretch);
+                        position: relative;
+                        gap: 0.25rem;
+                        padding: 0.5rem;
+
+                        .tool-tip-arrow {
+                            position: absolute;
+                            z-index: 2;
+                            bottom: 100%;
+                            left: 50%;
+                            transform: translate(-50%, 50%) rotate(45deg);
+                            width: 10%;
+                            aspect-ratio: 1;
+                            background-color: #3b82f6; // $primary-blue
+                        }
+
+                        div {
+                            @include flex(row, space-between, center);
+                            gap: 1rem;
+                            color: #fff;
+                            z-index: 3;
+
+                            span:nth-of-type(2) {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .secondary-keys {
+                display: flex;
+                gap: 0.5rem;
+
+                span {
+                    flex: 1;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

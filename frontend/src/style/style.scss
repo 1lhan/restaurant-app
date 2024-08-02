@@ -1,0 +1,1379 @@
+@mixin flex($fd, $jc, $ai) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+$primary-blue: #3b82f6;
+$gray-font-color: #4b5563;
+$gray100: rgb(243, 244, 246);
+$gray150: rgb(236, 237, 240);
+$gray200: rgb(229, 231, 235);
+$gray300: rgb(209, 213, 219);
+$orange: #fb923c;
+$green: #34d399;
+$red: #ff6c6c;
+$boxShadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+
+$tableChairDistance: 107.5%;
+$currency: '₺';
+
+html {
+    .table-template {
+        @include flex(column, flex-start, stretch);
+        width: 100%;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        background: #fff;
+
+        .field-names {
+            @include flex(row, space-between, center);
+            gap: 0.5rem;
+            padding: 0.5rem 1rem 0.5rem 0.5rem;
+            background: $gray100;
+            border-radius: 0.5rem;
+            color: $gray-font-color;
+            font-weight: 600;
+            text-transform: capitalize;
+            user-select: none;
+
+            .button {
+                visibility: hidden;
+                padding: 0 0.5rem;
+            }
+        }
+
+        .table-body {
+            @include flex(column, flex-start, stretch);
+            gap: 0.5rem;
+            padding: 0.5rem;
+            overflow-y: scroll;
+
+            .table-body-item {
+                @include flex(row, space-between, center);
+                gap: 0.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $gray200;
+
+                .button {
+                    padding: 0.5rem;
+                    color: $primary-blue;
+                    cursor: pointer;
+                }
+
+                &:nth-last-of-type(1) {
+                    border: 0;
+                }
+            }
+        }
+
+        .id {
+            width: 1.5rem;
+        }
+
+        .image {
+            width: 4rem;
+            border-radius: 4px;
+        }
+
+        .table-item {
+            @include flex(row, flex-start, center);
+            flex: 1;
+        }
+    }
+
+    .form-template {
+        @include flex(column, flex-start, stretch);
+        width: 100%;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        background: #fff; //!
+
+        .form-header {
+            @include flex(row, space-between, center);
+
+            .close-btn {
+                padding: 0.5rem;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover {
+                    background: $gray100; //!
+                    color: $primary-blue; //!
+                }
+            }
+        }
+
+        .form-body {
+            @include flex(column, flex-start, stretch);
+            gap: 1rem;
+
+            .form-body-item {
+                @include flex(column, flex-start, stretch);
+                gap: 0.5rem;
+
+                span {
+                    order: 1;
+                    text-transform: capitalize;
+                    color: $gray-font-color; //!
+                }
+
+                input,
+                select {
+                    order: 2;
+                    border: 1px solid $gray200; //!
+                    border-radius: 4px;
+                    outline: 0;
+                    padding: 0.6rem 0.75rem;
+
+                    &:focus {
+                        border-color: $primary-blue; //!
+                    }
+                }
+            }
+        }
+
+        .form-msg {
+            text-align: center;
+            color: $orange; //!
+        }
+
+        .submit-btn {
+            border: 0;
+            border-radius: 4px;
+            outline: 0;
+            padding: 0.6rem;
+            background: $primary-blue; //!
+            color: #fff; //!
+            cursor: pointer;
+        }
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    #root {
+        @include flex(row, flex-flex-start, flex-flex-start);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    body {
+        ::-webkit-scrollbar {
+            background: none;
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: $gray300;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .container {
+        width: 87.5%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 1.5rem;
+        background: rgb(248, 248, 248);
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .btn {
+        @include flex(row, center, center);
+        gap: 0.4rem;
+        background: #fff;
+        border: 1px solid $primary-blue;
+        outline: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        color: rgba(51, 51, 51, 0.8);
+        cursor: pointer;
+
+        &:hover {
+            background: $primary-blue;
+            color: #fff;
+        }
+    }
+
+    .small-btn {
+        padding: 0.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: auto;
+
+        &:hover {
+            background: $gray100;
+            color: $primary-blue;
+        }
+    }
+
+    .red-btn {
+        border-color: $red;
+
+        &:hover {
+            background: $red;
+        }
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .page-msg-span {
+        width: calc(87.5% - 3rem);
+        margin: 1.5rem auto;
+        height: fit-content;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background: $gray100;
+        text-align: center;
+        color: $orange;
+    }
+
+    .single-input-form {
+        border: 1px solid $primary-blue;
+        padding: 0.25rem;
+        border-radius: 4px;
+
+        input {
+            width: 7.5rem;
+            padding: 0.6rem;
+            border: 0;
+            outline: 0;
+        }
+
+        button {
+            padding: 0.6rem;
+            background: $primary-blue;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #fff;
+
+            &:hover {
+                background: $primary-blue;
+            }
+        }
+
+    }
+}
+
+.navbar {
+    @include flex(column, flex-start, center);
+    gap: 0.5rem;
+    width: 12.5%;
+    height: 100vh;
+    padding: 1rem 0.5rem;
+
+    .nav-item {
+        @include flex(row, flex-start, center);
+        gap: 0.5rem;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.5rem 0.75rem;
+        border-radius: 3px;
+        text-transform: capitalize;
+        color: $gray-font-color;
+
+        i {
+            width: 10%;
+        }
+
+        span {
+            width: 90%;
+        }
+
+        &:hover {
+            background: rgba(147, 197, 253, 0.2);
+        }
+    }
+
+    .active {
+        color: $primary-blue;
+        background: rgba(147, 197, 253, 0.2);
+    }
+
+    .navbar-login-section {
+        position: relative;
+        margin-top: auto;
+        width: 100%;
+
+        .show-login-form-btn,
+        .user-btn {
+            @include flex(row, flex-start, center);
+            width: 100%;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid $primary-blue;
+            border-radius: 3px;
+            background: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $gray-font-color;
+            cursor: pointer;
+
+            .first-letter-of-username {
+                @include flex(row, center, center);
+                width: 2rem;
+                aspect-ratio: 1;
+                padding: 0.4rem;
+                border-radius: 50%;
+                background: $gray150;
+            }
+
+            .fa-arrow-right-from-bracket {
+                margin-left: auto;
+
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+
+        .show-login-form-btn:hover {
+            background: $primary-blue;
+            color: #fff;
+        }
+
+        .form-template {
+            position: absolute;
+            z-index: 2;
+            left: calc(100% + 1rem);
+            bottom: 0;
+            width: 20rem;
+            box-shadow: $boxShadow
+        }
+    }
+}
+
+.orders-page {
+    @include flex(row, flex-start, flex-start);
+    gap: 1.5rem;
+    position: relative;
+
+    h3 {
+        color: $primary-blue;
+    }
+
+    hr {
+        width: 100%;
+        height: 1px;
+        background: $gray200;
+        border: 0;
+    }
+
+    .tables-section {
+        @include flex(column, flex-start, flex-start);
+        position: relative;
+        width: 75%;
+        height: 100%;
+        background: #fff;
+        box-shadow: $boxShadow;
+
+        h3 {
+            @include flex(row, flex-start, center);
+            padding: 0.75rem 1rem;
+        }
+
+        .tables {
+            @include flex(row, flex-start, flex-start);
+            width: 100%;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+
+            .tables-column {
+                @include flex(column, flex-start, flex-start);
+                flex: 1;
+                gap: 1rem;
+
+                .table-div {
+                    @include flex(row, center, center);
+                    width: 100%;
+                    aspect-ratio: 1;
+
+                    .table-div-table {
+                        @include flex(row, center, center);
+                        position: relative;
+                        width: 50%;
+                        height: 50%;
+                        border: 1px solid $gray300;
+                        border-radius: 6px;
+                        box-shadow: $boxShadow;
+                        cursor: pointer;
+                    }
+
+                    .chair {
+                        position: absolute;
+                        border: 1px solid $gray300;
+                        border-radius: 5px;
+                    }
+
+                    .vertical-chairs {
+
+                        .chair {
+                            width: 40%;
+                            aspect-ratio: 4/1.5;
+                        }
+
+                        .chair-1 {
+                            bottom: $tableChairDistance;
+                            left: 0;
+                        }
+
+                        .chair-2 {
+                            bottom: $tableChairDistance;
+                            right: 0;
+                        }
+
+                        .chair-3 {
+                            top: $tableChairDistance;
+                            left: 0;
+                        }
+
+                        .chair-4 {
+                            top: $tableChairDistance;
+                            right: 0;
+                        }
+                    }
+
+                    .horizontal-chairs {
+
+                        .chair {
+                            height: 40%;
+                            aspect-ratio: 1.5/4;
+                        }
+
+                        .chair-1 {
+                            left: $tableChairDistance;
+                            bottom: 0;
+                        }
+
+                        .chair-2 {
+                            left: $tableChairDistance;
+                            top: 0;
+                        }
+
+                        .chair-3 {
+                            right: $tableChairDistance;
+                            bottom: 0;
+                        }
+
+                        .chair-4 {
+                            right: $tableChairDistance;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .orders-section {
+        @include flex(column, flex-start, center);
+        width: 25%;
+        height: 100%;
+        background: #fff;
+        box-shadow: $boxShadow;
+
+        .orders-section-top-div {
+            @include flex(row, space-between, center);
+            width: 100%;
+            padding: 0.75rem 1rem;
+
+            a {
+                text-decoration: underline;
+                color: $gray-font-color;
+                font-size: 0.9rem;
+                text-underline-offset: 0.1rem;
+            }
+        }
+
+        .orders {
+            @include flex(column, flex-start, center);
+            width: 100%;
+            height: 100%;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            overflow-y: scroll;
+
+            .order {
+                @include flex(row, space-between, center);
+                width: 100%;
+                gap: 0.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $gray200;
+
+                img {
+                    @include flex(row, center, center);
+                    width: calc(20% - 0.25rem);
+                    aspect-ratio: 1;
+                    border-radius: 4px;
+                }
+
+                >div {
+                    @include flex(column, flex-start, center);
+                    width: calc(80% - 0.25rem);
+                    height: 100%;
+
+                    >div {
+                        @include flex(row, space-between, center);
+                        width: 100%;
+                        height: 50%;
+
+                        .table-no {
+                            color: $primary-blue;
+                            font-weight: 600;
+                        }
+
+                        .status {
+                            border-radius: 4px;
+                            padding: 0.25rem;
+                        }
+
+                        .ready {
+                            color: $green;
+                            background: #d1fae5;
+                        }
+
+                        .canceled {
+                            color: $red;
+                            background: #fee2e2;
+                        }
+
+                        .preparing {
+                            color: $orange;
+                            background: #ffedd5;
+                        }
+
+                        .order-item-name {
+                            color: $gray-font-color;
+                        }
+
+                        .fa-check {
+                            padding: 0.35rem;
+                            color: $green;
+                            background: #d1fae5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table-info-div {
+        @include flex(column, space-between, center);
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        width: calc(100% - 3rem);
+        height: calc(100% - 3rem);
+        padding: 1rem;
+        background: #fff;
+        overflow: hidden;
+
+        .top-div {
+            @include flex(row, space-between, center);
+            width: 100%;
+            height: 2.5rem;
+
+            .close-div-btn {
+                font-size: 1.25rem;
+                padding: 0.5rem;
+                cursor: pointer;
+            }
+        }
+
+        .inner-div {
+            @include flex(row, space-between, center);
+            width: 100%;
+            height: calc(100% - 3.5rem);
+            gap: 1rem;
+
+            .inner-div-left-side {
+                @include flex(column, space-between, center);
+                flex: 3;
+                height: 100%;
+                gap: 1rem;
+
+                .menu {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 0.5rem;
+
+                    .menu-item {
+                        @include flex(column, space-between, flex-start);
+                        gap: 0.25rem;
+                        padding: 0.75rem;
+                        background: $gray100;
+                        border-radius: 0.25rem;
+
+                        img {
+                            width: 100%;
+                            border-radius: 0.25rem;
+                        }
+
+                        .name {
+                            color: $gray-font-color;
+                            font-weight: 600;
+                        }
+
+                        .price {
+                            color: $primary-blue;
+                            font-weight: 600;
+
+                            &:after {
+                                margin-left: 0.1rem;
+                                content: $currency;
+                            }
+                        }
+
+                        .quantity-div {
+                            @include flex(row, space-around, center);
+                            width: 100%;
+                            padding: 0.25rem 0rem;
+                            border-radius: 0.25rem;
+                            background: $gray200;
+
+                            button {
+                                width: 1.25rem;
+                                aspect-ratio: 1;
+                                border: 0;
+                                outline: 0;
+                                border-radius: 50%;
+                                color: #fff;
+                                background: $primary-blue;
+                                cursor: pointer;
+                            }
+
+                            input {
+                                width: 2rem;
+                                border: 0;
+                                outline: 0;
+                                font-weight: 600;
+                                background: none;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .inner-div-right-side {
+                @include flex(column, space-between, center);
+                flex: 1;
+                height: 100%;
+                gap: 1rem;
+
+                .orders {
+                    @include flex(column, flex-start, center);
+                    width: 100%;
+                    gap: 0.5rem;
+                    padding: 0 0.5rem;
+                    overflow-y: scroll;
+
+                    .order-item {
+                        @include flex(column, space-between, center);
+                        width: 100%;
+                        gap: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        border-bottom: 1px solid $gray200;
+
+                        .order-item-div-top {
+                            @include flex(row, space-between, center);
+                            width: 100%;
+                            height: 100%;
+                            gap: 0.5rem;
+
+                            img {
+                                width: 17.5%;
+                                aspect-ratio: 1;
+                                border-radius: 4px;
+                            }
+
+                            >div {
+                                @include flex(column, space-between, center);
+                                width: 82.5%;
+                                height: 100%;
+
+                                .name {
+                                    @include flex(row, flex-start, flex-start);
+                                    width: 100%;
+                                    flex: 1;
+                                    color: $gray-font-color;
+                                    font-weight: 600;
+                                }
+
+                                div {
+                                    @include flex(row, space-between, flex-end);
+                                    width: 100%;
+                                    flex: 1;
+
+                                    span:nth-of-type(1) {
+                                        span:nth-of-type(1) {
+                                            &::after {
+                                                margin-left: 0.1rem;
+                                                content: $currency;
+                                            }
+                                        }
+                                    }
+
+                                    .order-item-total-price {
+                                        color: $primary-blue;
+                                        font-weight: 600;
+                                        margin-left: 0.1rem;
+                                        content: $currency;
+
+                                        &::after {
+                                            margin-left: 0.1rem;
+                                            content: $currency;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .order-item-div-bottom {
+                            @include flex(column, flex-start, center);
+                            width: 100%;
+                            height: 100%;
+                            gap: 0.5rem;
+
+                            .order-status-info {
+                                @include flex(row, flex-start, center);
+                                width: 100%;
+                                gap: 0.5rem;
+
+                                .status {
+                                    border-radius: 4px;
+                                    padding: 0.25rem;
+                                }
+
+                                .ready {
+                                    color: $green;
+                                    background: #d1fae5;
+                                }
+
+                                .canceled {
+                                    color: $red;
+                                    background: #fee2e2;
+                                }
+
+                                .preparing {
+                                    color: $orange;
+                                    background: #ffedd5;
+                                }
+
+                                .order-cancel-btn {
+                                    margin-left: auto;
+                                    padding: 0.25rem;
+                                    border: 0;
+                                    outline: 0;
+                                    border-radius: 4px;
+                                    color: $red;
+                                    background: #fee2e2;
+                                    cursor: pointer;
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                .table-payment-section {
+                    @include flex(column, flex-start, center);
+                    width: 100%;
+                    gap: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.25rem;
+                    background: $gray100;
+
+                    div {
+                        @include flex(row, space-between, center);
+                        width: 100%;
+                        gap: 0.5rem;
+
+                        .discount-input {
+                            width: 4rem;
+                            padding: 0.5rem;
+                            border: 1px solid $gray300;
+                            outline: 0;
+                            border-radius: 4px;
+                            text-align: center;
+
+                            &:focus {
+                                border-color: $primary-blue;
+                            }
+                        }
+                    }
+
+                    .total-amount {
+                        font-weight: 600;
+
+                        span:nth-of-type(2) {
+                            color: $primary-blue;
+
+                            &:after {
+                                margin-left: 0.1rem;
+                                content: $currency;
+                            }
+                        }
+                    }
+
+                    .payment-method {
+                        justify-content: flex-end;
+
+                        input {
+                            display: none;
+
+                            &:checked+i {
+                                color: $primary-blue;
+                                border-color: $primary-blue;
+                            }
+                        }
+
+                        i {
+                            font-size: 1.1rem;
+                            padding: 0.75rem;
+                            border: 1px solid $gray200;
+                            border-radius: 0.25rem;
+                            cursor: pointer;
+                        }
+
+                        span {
+                            margin-right: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.menu-page {
+    @include flex(row, space-between, center);
+    gap: 1rem;
+
+    .left-side {
+        @include flex(column, space-between, center);
+        flex: 3;
+        height: 100%;
+        gap: 1rem;
+
+        .menu-page-header {
+            @include flex(row, space-between, center);
+            width: 100%;
+            height: 2.5rem;
+            gap: 1rem;
+        }
+
+        .table-template {
+            height: calc(100% - 3.5rem);
+        }
+    }
+
+    .right-side {
+        @include flex(column, space-between, center);
+        flex: 1;
+        height: 100%;
+
+        .menu-item-details-div {
+            @include flex(column, flex-start, center);
+            width: 100%;
+            gap: 1rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 0.75rem;
+
+            img {
+                width: 75%;
+                aspect-ratio: 1;
+                border-radius: 0.5rem;
+            }
+
+            .name {
+                font-weight: 600;
+                color: $gray-font-color;
+            }
+
+            .menu-item-price-update-history-table-wrapper {
+                @include flex(column, flex-start, flex-start);
+                width: 100%;
+                gap: 0.75rem;
+
+                .menu-item-price-update-history-table {
+                    max-height: 25rem;
+                    padding: 0;
+
+                    .table-item {
+                        @include flex(row, center, center);
+                    }
+                }
+            }
+
+            .update-price-form {
+                @include flex(row, space-between, center);
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 0.75rem;
+                border-radius: 0.5rem;
+
+                span {
+                    width: 100%;
+                }
+
+                input {
+                    width: calc(50% - 0.375rem);
+                    padding: 0.75rem;
+                    border: 1px solid $gray200;
+                    outline: 0;
+                    border-radius: 4px;
+                    text-align: center;
+
+                    &:focus {
+                        border-color: $primary-blue;
+                    }
+                }
+
+                button {
+                    width: calc(50% - 0.375rem);
+                    background: $primary-blue;
+                    padding: 0.75rem;
+                    border: 0;
+                    outline: 0;
+                    border-radius: 0.25rem;
+                    color: #fff;
+                    cursor: pointer;
+
+                    &:hover {
+                        box-shadow: 0 0 8px 1px $primary-blue;
+                    }
+                }
+            }
+
+            .red-btn {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.staff-page {
+    @include flex(row, space-between, center);
+    gap: 1rem;
+
+    .left-side {
+        @include flex(column, flex-start, center);
+        flex: 3;
+        height: 100%;
+        gap: 1rem;
+
+        .staff-page-header {
+            @include flex(row, space-between, center);
+            width: 100%;
+        }
+
+        .table-template {
+
+            .name,
+            .lastname,
+            .startDate {
+                flex: 2;
+            }
+
+            .gender,
+            .salary {
+                flex: 1.25;
+            }
+
+            .role {
+                flex: 1.5;
+            }
+
+            .terminationDate {
+                flex: 2.5;
+            }
+
+            .phoneNumber,
+            .identificationNumber {
+                flex: 3;
+            }
+        }
+    }
+
+    .right-side {
+        @include flex(column, space-between, center);
+        flex: 1;
+        height: 100%;
+
+        .staff-info-div {
+            @include flex(column, flex-start, center);
+            width: 100%;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            background: #fff;
+        }
+
+        .staff-info-div {
+            @include flex(column, flex-start, stretch);
+            width: 100%;
+            gap: 1rem;
+            padding: 1rem 0.5rem;
+            border-radius: 1rem;
+            background: #fff;
+
+            hr {
+                background: $gray200;
+                width: 100%;
+                height: 1px;
+                border: 0;
+            }
+
+            .staff-info-children-div {
+                @include flex(row, space-between, center);
+                padding: 0 0.5rem;
+
+                span:nth-of-type(1) {
+                    color: $gray-font-color;
+                }
+
+                span:nth-of-type(2) {
+                    font-weight: 600;
+                }
+            }
+
+            .staff-salary-update-history-table-wrapper {
+                @include flex(column, flex-start, stretch);
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+
+                .salary-update-history-table {
+                    padding: 0rem;
+                    max-height: 10rem;
+                }
+            }
+
+            .update-salary-section {
+                @include flex(row, flex-start, center);
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+
+                span {
+                    width: 100%;
+                }
+
+                input {
+                    width: calc(50% - 0.25rem);
+                    padding: 0.6rem 0.75rem;
+                    border: 1px solid $gray200;
+                    border-radius: 4px;
+                    outline: 0;
+
+                    &:focus {
+                        border-color: $primary-blue;
+                    }
+                }
+
+                button {
+                    width: calc(50% - 0.25rem);
+                    padding: 0.6rem 0.75rem;
+                    border: 0;
+                    border-radius: 4px;
+                    outline: 0;
+                    background: $primary-blue;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+
+            .buttons {
+                @include flex(row, flex-end, center);
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+}
+
+.financial-transaction-page {
+    @include flex(column, flex-start, flex-start);
+    gap: 1rem;
+
+    .page-header {
+        @include flex(row, space-between, center);
+        width: 100%;
+        gap: 1rem;
+
+        h3 {
+            @include flex(row, flex-start, center);
+            flex: 1.25;
+        }
+
+        .date-filter {
+            @include flex(row, flex-end, center);
+            flex: 1.25;
+            gap: 0.5rem;
+
+            input {
+                border: 1px solid $gray200;
+                border-radius: 4px;
+                outline: 0;
+                padding: 0.5rem;
+
+                &:focus {
+                    border-color: $primary-blue;
+                }
+            }
+        }
+
+        .button-wrapper {
+            @include flex(row, flex-end, center);
+            flex: 1;
+        }
+    }
+
+    section {
+        @include flex(row, flex-start, flex-start);
+        width: 100%;
+        gap: 1rem;
+
+        .section-item {
+            @include flex(column, flex-start, flex-start);
+            flex: 1.25;
+            border-radius: 0.75rem;
+            background: #fff;
+
+            .section-header {
+                @include flex(row, flex-start, center);
+                width: 100%;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+        }
+
+        aside {
+            @include flex(column, flex-start, stretch);
+            flex: 1;
+
+            .transaction-details-div {
+                @include flex(column, flex-start, stretch);
+                gap: 1rem;
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+                background: #fff;
+
+                .close-btn-wrapper {
+                    @include flex(row, flex-end, center);
+                }
+
+                .div-content {
+                    @include flex(column, flex-start, stretch);
+                    gap: 1rem;
+                    padding: 0.5rem;
+
+                    .transaction-details-item {
+                        @include flex(row, space-between, center);
+                        gap: 0.5rem;
+
+                        span:nth-of-type(1) {
+                            text-transform: capitalize;
+                        }
+
+                        span:nth-of-type(2) {
+                            font-weight: 600;
+                            color: $gray-font-color;
+                        }
+                    }
+
+                    .btn {
+                        margin-left: auto;
+                        width: fit-content;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.data-analysis-page {
+    @include flex(column, flex-start, stretch);
+    gap: 1rem;
+    overflow: auto;
+
+    .page-header {
+        @include flex(row, space-between, center);
+
+        .date-filters {
+            @include flex(row, flex-end, center);
+            flex: 1.25;
+            gap: 0.5rem;
+
+            input {
+                border: 1px solid $gray200;
+                border-radius: 4px;
+                outline: 0;
+                padding: 0.5rem;
+
+                &:focus {
+                    border-color: $primary-blue;
+                }
+            }
+        }
+    }
+
+    section {
+        @include flex(row, flex-start, flex-start);
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .column-chart-wrapper {
+            width: 40%;
+        }
+
+        .pie-chart-wrapper {
+            width: 40%;
+        }
+
+        .new-average-sitting-time,
+        .monthly-income,
+        .monthly-expose,
+        .worth {
+            @include flex(row, flex-start, stretch);
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: #fff;
+
+            i {
+                background: #e0f2fe;
+                color: $primary-blue;
+                padding: 1.25rem;
+                font-size: 1.25rem;
+                border-radius: 4px;
+            }
+
+            div {
+                @include flex(column, space-between, stretch);
+
+                .title {
+                    color: $gray-font-color;
+                    font-weight: 600;
+                }
+
+                .value {
+                    font-weight: 600;
+                    font-size: 1.25rem
+                }
+
+                .currency {
+                    &::after {
+                        content: $currency;
+                        margin-left: 0.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.manager-actions-page {
+    @include flex(column, flex-start, stretch);
+    gap: 1rem;
+
+    section {
+        @include flex(row, flex-start, flex-start);
+        gap: 1rem;
+
+        .section-items {
+            @include flex(row, flex-start, flex-start);
+            flex: 3;
+            flex-wrap: wrap;
+
+            .section-item {
+                @include flex(column, flex-start, stretch);
+                width: 30%;
+                gap: 1rem;
+                padding: 1rem;
+                border-radius: 0.75rem;
+                background: #fff;
+
+                .section-item-header {
+                    @include flex(row, space-between, center);
+                    gap: 1rem;
+                }
+
+                .accounts-table {
+                    padding: 0;
+                }
+            }
+        }
+
+        aside {
+            flex: 1;
+
+            .account-details {
+                @include flex(column, flex-start, stretch);
+                gap: 1rem;
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+                background: #fff;
+                width: 100%;
+
+                >div {
+                    @include flex(column, flex-start, stretch);
+                    gap: 1rem;
+                    padding: 0.5rem;
+
+                    .account-detail-div {
+                        @include flex(row, space-between, center);
+                        gap: .5rem;
+
+                        span:nth-of-type(2) {
+                            color: $gray-font-color;
+                        }
+
+                        span:nth-of-type(2) {
+                            font-weight: 600;
+                        }
+                    }
+
+                    hr {
+                        border: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: $gray200;
+                    }
+
+                    .form-template {
+                        padding: 0rem;
+                    }
+
+                    .red-btn {
+                        width: fit-content;
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+}

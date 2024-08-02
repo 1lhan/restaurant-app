@@ -1,0 +1,1424 @@
+@charset "UTF-8";
+html .table-template {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+html .table-template .field-names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  background: rgb(243, 244, 246);
+  border-radius: 0.5rem;
+  color: #4b5563;
+  font-weight: 600;
+  text-transform: capitalize;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+html .table-template .field-names .button {
+  visibility: hidden;
+  padding: 0 0.5rem;
+}
+html .table-template .table-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  overflow-y: scroll;
+}
+html .table-template .table-body .table-body-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(229, 231, 235);
+}
+html .table-template .table-body .table-body-item .button {
+  padding: 0.5rem;
+  color: #3b82f6;
+  cursor: pointer;
+}
+html .table-template .table-body .table-body-item:nth-last-of-type(1) {
+  border: 0;
+}
+html .table-template .id {
+  width: 1.5rem;
+}
+html .table-template .image {
+  width: 4rem;
+  border-radius: 4px;
+}
+html .table-template .table-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+html .form-template {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+html .form-template .form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html .form-template .form-header .close-btn {
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+html .form-template .form-header .close-btn:hover {
+  background: rgb(243, 244, 246);
+  color: #3b82f6;
+}
+html .form-template .form-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+html .form-template .form-body .form-body-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+html .form-template .form-body .form-body-item span {
+  order: 1;
+  text-transform: capitalize;
+  color: #4b5563;
+}
+html .form-template .form-body .form-body-item input,
+html .form-template .form-body .form-body-item select {
+  order: 2;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 4px;
+  outline: 0;
+  padding: 0.6rem 0.75rem;
+}
+html .form-template .form-body .form-body-item input:focus,
+html .form-template .form-body .form-body-item select:focus {
+  border-color: #3b82f6;
+}
+html .form-template .form-msg {
+  text-align: center;
+  color: #fb923c;
+}
+html .form-template .submit-btn {
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  padding: 0.6rem;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+}
+html * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+html #root {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-flex-start;
+  align-items: flex-flex-start;
+  width: 100vw;
+  height: 100vh;
+}
+html body ::-webkit-scrollbar {
+  background: none;
+  width: 8px;
+}
+html body ::-webkit-scrollbar-thumb {
+  background: rgb(209, 213, 219);
+  border-radius: 0.5rem;
+}
+html .container {
+  width: 87.5%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: rgb(248, 248, 248);
+}
+html a {
+  color: #333;
+  text-decoration: none;
+}
+html .btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fff;
+  border: 1px solid #3b82f6;
+  outline: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+}
+html .btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+html .small-btn {
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
+html .small-btn:hover {
+  background: rgb(243, 244, 246);
+  color: #3b82f6;
+}
+html .red-btn {
+  border-color: #ff6c6c;
+}
+html .red-btn:hover {
+  background: #ff6c6c;
+}
+html input[type=number]::-webkit-inner-spin-button,
+html input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+html .page-msg-span {
+  width: calc(87.5% - 3rem);
+  margin: 1.5rem auto;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgb(243, 244, 246);
+  text-align: center;
+  color: #fb923c;
+}
+html .single-input-form {
+  border: 1px solid #3b82f6;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+html .single-input-form input {
+  width: 7.5rem;
+  padding: 0.6rem;
+  border: 0;
+  outline: 0;
+}
+html .single-input-form button {
+  padding: 0.6rem;
+  background: #3b82f6;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+}
+html .single-input-form button:hover {
+  background: #3b82f6;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 12.5%;
+  height: 100vh;
+  padding: 1rem 0.5rem;
+}
+.navbar .nav-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
+  text-transform: capitalize;
+  color: #4b5563;
+}
+.navbar .nav-item i {
+  width: 10%;
+}
+.navbar .nav-item span {
+  width: 90%;
+}
+.navbar .nav-item:hover {
+  background: rgba(147, 197, 253, 0.2);
+}
+.navbar .active {
+  color: #3b82f6;
+  background: rgba(147, 197, 253, 0.2);
+}
+.navbar .navbar-login-section {
+  position: relative;
+  margin-top: auto;
+  width: 100%;
+}
+.navbar .navbar-login-section .show-login-form-btn,
+.navbar .navbar-login-section .user-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #3b82f6;
+  border-radius: 3px;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+}
+.navbar .navbar-login-section .show-login-form-btn .first-letter-of-username,
+.navbar .navbar-login-section .user-btn .first-letter-of-username {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  padding: 0.4rem;
+  border-radius: 50%;
+  background: rgb(236, 237, 240);
+}
+.navbar .navbar-login-section .show-login-form-btn .fa-arrow-right-from-bracket,
+.navbar .navbar-login-section .user-btn .fa-arrow-right-from-bracket {
+  margin-left: auto;
+}
+.navbar .navbar-login-section .show-login-form-btn .fa-arrow-right-from-bracket:hover,
+.navbar .navbar-login-section .user-btn .fa-arrow-right-from-bracket:hover {
+  color: #ff6c6c;
+}
+.navbar .navbar-login-section .show-login-form-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+.navbar .navbar-login-section .form-template {
+  position: absolute;
+  z-index: 2;
+  left: calc(100% + 1rem);
+  bottom: 0;
+  width: 20rem;
+  box-shadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+}
+
+.orders-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+}
+.orders-page h3 {
+  color: #3b82f6;
+}
+.orders-page hr {
+  width: 100%;
+  height: 1px;
+  background: rgb(229, 231, 235);
+  border: 0;
+}
+.orders-page .tables-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  width: 75%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+}
+.orders-page .tables-section h3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+.orders-page .tables-section .tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+.orders-page .tables-section .tables .tables-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+  gap: 1rem;
+}
+.orders-page .tables-section .tables .tables-column .table-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+}
+.orders-page .tables-section .tables .tables-column .table-div .table-div-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  height: 50%;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 6px;
+  box-shadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+  cursor: pointer;
+}
+.orders-page .tables-section .tables .tables-column .table-div .chair {
+  position: absolute;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 5px;
+}
+.orders-page .tables-section .tables .tables-column .table-div .vertical-chairs .chair {
+  width: 40%;
+  aspect-ratio: 4/1.5;
+}
+.orders-page .tables-section .tables .tables-column .table-div .vertical-chairs .chair-1 {
+  bottom: 107.5%;
+  left: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .vertical-chairs .chair-2 {
+  bottom: 107.5%;
+  right: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .vertical-chairs .chair-3 {
+  top: 107.5%;
+  left: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .vertical-chairs .chair-4 {
+  top: 107.5%;
+  right: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .horizontal-chairs .chair {
+  height: 40%;
+  aspect-ratio: 1.5/4;
+}
+.orders-page .tables-section .tables .tables-column .table-div .horizontal-chairs .chair-1 {
+  left: 107.5%;
+  bottom: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .horizontal-chairs .chair-2 {
+  left: 107.5%;
+  top: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .horizontal-chairs .chair-3 {
+  right: 107.5%;
+  bottom: 0;
+}
+.orders-page .tables-section .tables .tables-column .table-div .horizontal-chairs .chair-4 {
+  right: 107.5%;
+  top: 0;
+}
+.orders-page .orders-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 16px 2px rgba(204, 204, 204, 0.35);
+}
+.orders-page .orders-section .orders-section-top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+.orders-page .orders-section .orders-section-top-div a {
+  text-decoration: underline;
+  color: #4b5563;
+  font-size: 0.9rem;
+  text-underline-offset: 0.1rem;
+}
+.orders-page .orders-section .orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  overflow-y: scroll;
+}
+.orders-page .orders-section .orders .order {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(229, 231, 235);
+}
+.orders-page .orders-section .orders .order img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: calc(20% - 0.25rem);
+  aspect-ratio: 1;
+  border-radius: 4px;
+}
+.orders-page .orders-section .orders .order > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(80% - 0.25rem);
+  height: 100%;
+}
+.orders-page .orders-section .orders .order > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+.orders-page .orders-section .orders .order > div > div .table-no {
+  color: #3b82f6;
+  font-weight: 600;
+}
+.orders-page .orders-section .orders .order > div > div .status {
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+.orders-page .orders-section .orders .order > div > div .ready {
+  color: #34d399;
+  background: #d1fae5;
+}
+.orders-page .orders-section .orders .order > div > div .canceled {
+  color: #ff6c6c;
+  background: #fee2e2;
+}
+.orders-page .orders-section .orders .order > div > div .preparing {
+  color: #fb923c;
+  background: #ffedd5;
+}
+.orders-page .orders-section .orders .order > div > div .order-item-name {
+  color: #4b5563;
+}
+.orders-page .orders-section .orders .order > div > div .fa-check {
+  padding: 0.35rem;
+  color: #34d399;
+  background: #d1fae5;
+}
+.orders-page .table-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: calc(100% - 3rem);
+  height: calc(100% - 3rem);
+  padding: 1rem;
+  background: #fff;
+  overflow: hidden;
+}
+.orders-page .table-info-div .top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2.5rem;
+}
+.orders-page .table-info-div .top-div .close-div-btn {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.orders-page .table-info-div .inner-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 3.5rem);
+  gap: 1rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 3;
+  height: 100%;
+  gap: 1rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: rgb(243, 244, 246);
+  border-radius: 0.25rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .name {
+  color: #4b5563;
+  font-weight: 600;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .price {
+  color: #3b82f6;
+  font-weight: 600;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .price:after {
+  margin-left: 0.1rem;
+  content: "₺";
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .quantity-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0.25rem 0rem;
+  border-radius: 0.25rem;
+  background: rgb(229, 231, 235);
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .quantity-div button {
+  width: 1.25rem;
+  aspect-ratio: 1;
+  border: 0;
+  outline: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: #3b82f6;
+  cursor: pointer;
+}
+.orders-page .table-info-div .inner-div .inner-div-left-side .menu .menu-item .quantity-div input {
+  width: 2rem;
+  border: 0;
+  outline: 0;
+  font-weight: 600;
+  background: none;
+  text-align: center;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  gap: 1rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+  overflow-y: scroll;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(229, 231, 235);
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top img {
+  width: 17.5%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 82.5%;
+  height: 100%;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div .name {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
+  color: #4b5563;
+  font-weight: 600;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  flex: 1;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div div span:nth-of-type(1) span:nth-of-type(1)::after {
+  margin-left: 0.1rem;
+  content: "₺";
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div div .order-item-total-price {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-left: 0.1rem;
+  content: "₺";
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-top > div div .order-item-total-price::after {
+  margin-left: 0.1rem;
+  content: "₺";
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info .status {
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info .ready {
+  color: #34d399;
+  background: #d1fae5;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info .canceled {
+  color: #ff6c6c;
+  background: #fee2e2;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info .preparing {
+  color: #fb923c;
+  background: #ffedd5;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .orders .order-item .order-item-div-bottom .order-status-info .order-cancel-btn {
+  margin-left: auto;
+  padding: 0.25rem;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  color: #ff6c6c;
+  background: #fee2e2;
+  cursor: pointer;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background: rgb(243, 244, 246);
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section div .discount-input {
+  width: 4rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(209, 213, 219);
+  outline: 0;
+  border-radius: 4px;
+  text-align: center;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section div .discount-input:focus {
+  border-color: #3b82f6;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .total-amount {
+  font-weight: 600;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .total-amount span:nth-of-type(2) {
+  color: #3b82f6;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .total-amount span:nth-of-type(2):after {
+  margin-left: 0.1rem;
+  content: "₺";
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .payment-method {
+  justify-content: flex-end;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .payment-method input {
+  display: none;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .payment-method input:checked + i {
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .payment-method i {
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.orders-page .table-info-div .inner-div .inner-div-right-side .table-payment-section .payment-method span {
+  margin-right: auto;
+}
+
+.menu-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.menu-page .left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 3;
+  height: 100%;
+  gap: 1rem;
+}
+.menu-page .left-side .menu-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2.5rem;
+  gap: 1rem;
+}
+.menu-page .left-side .table-template {
+  height: calc(100% - 3.5rem);
+}
+.menu-page .right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+.menu-page .right-side .menu-item-details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.75rem;
+}
+.menu-page .right-side .menu-item-details-div img {
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+}
+.menu-page .right-side .menu-item-details-div .name {
+  font-weight: 600;
+  color: #4b5563;
+}
+.menu-page .right-side .menu-item-details-div .menu-item-price-update-history-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0.75rem;
+}
+.menu-page .right-side .menu-item-details-div .menu-item-price-update-history-table-wrapper .menu-item-price-update-history-table {
+  max-height: 25rem;
+  padding: 0;
+}
+.menu-page .right-side .menu-item-details-div .menu-item-price-update-history-table-wrapper .menu-item-price-update-history-table .table-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form span {
+  width: 100%;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form input {
+  width: calc(50% - 0.375rem);
+  padding: 0.75rem;
+  border: 1px solid rgb(229, 231, 235);
+  outline: 0;
+  border-radius: 4px;
+  text-align: center;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form input:focus {
+  border-color: #3b82f6;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form button {
+  width: calc(50% - 0.375rem);
+  background: #3b82f6;
+  padding: 0.75rem;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+}
+.menu-page .right-side .menu-item-details-div .update-price-form button:hover {
+  box-shadow: 0 0 8px 1px #3b82f6;
+}
+.menu-page .right-side .menu-item-details-div .red-btn {
+  margin-left: auto;
+}
+
+.staff-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.staff-page .left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 3;
+  height: 100%;
+  gap: 1rem;
+}
+.staff-page .left-side .staff-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.staff-page .left-side .table-template .name,
+.staff-page .left-side .table-template .lastname,
+.staff-page .left-side .table-template .startDate {
+  flex: 2;
+}
+.staff-page .left-side .table-template .gender,
+.staff-page .left-side .table-template .salary {
+  flex: 1.25;
+}
+.staff-page .left-side .table-template .role {
+  flex: 1.5;
+}
+.staff-page .left-side .table-template .terminationDate {
+  flex: 2.5;
+}
+.staff-page .left-side .table-template .phoneNumber,
+.staff-page .left-side .table-template .identificationNumber {
+  flex: 3;
+}
+.staff-page .right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+.staff-page .right-side .staff-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #fff;
+}
+.staff-page .right-side .staff-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  background: #fff;
+}
+.staff-page .right-side .staff-info-div hr {
+  background: rgb(229, 231, 235);
+  width: 100%;
+  height: 1px;
+  border: 0;
+}
+.staff-page .right-side .staff-info-div .staff-info-children-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+.staff-page .right-side .staff-info-div .staff-info-children-div span:nth-of-type(1) {
+  color: #4b5563;
+}
+.staff-page .right-side .staff-info-div .staff-info-children-div span:nth-of-type(2) {
+  font-weight: 600;
+}
+.staff-page .right-side .staff-info-div .staff-salary-update-history-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+.staff-page .right-side .staff-info-div .staff-salary-update-history-table-wrapper .salary-update-history-table {
+  padding: 0rem;
+  max-height: 10rem;
+}
+.staff-page .right-side .staff-info-div .update-salary-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+.staff-page .right-side .staff-info-div .update-salary-section span {
+  width: 100%;
+}
+.staff-page .right-side .staff-info-div .update-salary-section input {
+  width: calc(50% - 0.25rem);
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 4px;
+  outline: 0;
+}
+.staff-page .right-side .staff-info-div .update-salary-section input:focus {
+  border-color: #3b82f6;
+}
+.staff-page .right-side .staff-info-div .update-salary-section button {
+  width: calc(50% - 0.25rem);
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+}
+.staff-page .right-side .staff-info-div .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.financial-transaction-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.financial-transaction-page .page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+.financial-transaction-page .page-header h3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1.25;
+}
+.financial-transaction-page .page-header .date-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1.25;
+  gap: 0.5rem;
+}
+.financial-transaction-page .page-header .date-filter input {
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 4px;
+  outline: 0;
+  padding: 0.5rem;
+}
+.financial-transaction-page .page-header .date-filter input:focus {
+  border-color: #3b82f6;
+}
+.financial-transaction-page .page-header .button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+.financial-transaction-page section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1rem;
+}
+.financial-transaction-page section .section-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1.25;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.financial-transaction-page section .section-item .section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.financial-transaction-page section aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1;
+}
+.financial-transaction-page section aside .transaction-details-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.financial-transaction-page section aside .transaction-details-div .close-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.financial-transaction-page section aside .transaction-details-div .div-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.financial-transaction-page section aside .transaction-details-div .div-content .transaction-details-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.financial-transaction-page section aside .transaction-details-div .div-content .transaction-details-item span:nth-of-type(1) {
+  text-transform: capitalize;
+}
+.financial-transaction-page section aside .transaction-details-div .div-content .transaction-details-item span:nth-of-type(2) {
+  font-weight: 600;
+  color: #4b5563;
+}
+.financial-transaction-page section aside .transaction-details-div .div-content .btn {
+  margin-left: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.data-analysis-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  overflow: auto;
+}
+.data-analysis-page .page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.data-analysis-page .page-header .date-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1.25;
+  gap: 0.5rem;
+}
+.data-analysis-page .page-header .date-filters input {
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 4px;
+  outline: 0;
+  padding: 0.5rem;
+}
+.data-analysis-page .page-header .date-filters input:focus {
+  border-color: #3b82f6;
+}
+.data-analysis-page section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.data-analysis-page section .column-chart-wrapper {
+  width: 40%;
+}
+.data-analysis-page section .pie-chart-wrapper {
+  width: 40%;
+}
+.data-analysis-page section .new-average-sitting-time,
+.data-analysis-page section .monthly-income,
+.data-analysis-page section .monthly-expose,
+.data-analysis-page section .worth {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.data-analysis-page section .new-average-sitting-time i,
+.data-analysis-page section .monthly-income i,
+.data-analysis-page section .monthly-expose i,
+.data-analysis-page section .worth i {
+  background: #e0f2fe;
+  color: #3b82f6;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  border-radius: 4px;
+}
+.data-analysis-page section .new-average-sitting-time div,
+.data-analysis-page section .monthly-income div,
+.data-analysis-page section .monthly-expose div,
+.data-analysis-page section .worth div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.data-analysis-page section .new-average-sitting-time div .title,
+.data-analysis-page section .monthly-income div .title,
+.data-analysis-page section .monthly-expose div .title,
+.data-analysis-page section .worth div .title {
+  color: #4b5563;
+  font-weight: 600;
+}
+.data-analysis-page section .new-average-sitting-time div .value,
+.data-analysis-page section .monthly-income div .value,
+.data-analysis-page section .monthly-expose div .value,
+.data-analysis-page section .worth div .value {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.data-analysis-page section .new-average-sitting-time div .currency::after,
+.data-analysis-page section .monthly-income div .currency::after,
+.data-analysis-page section .monthly-expose div .currency::after,
+.data-analysis-page section .worth div .currency::after {
+  content: "₺";
+  margin-left: 0.1rem;
+}
+
+.manager-actions-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+}
+.manager-actions-page section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.manager-actions-page section .section-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 3;
+  flex-wrap: wrap;
+}
+.manager-actions-page section .section-items .section-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 30%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.manager-actions-page section .section-items .section-item .section-item-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.manager-actions-page section .section-items .section-item .accounts-table {
+  padding: 0;
+}
+.manager-actions-page section aside {
+  flex: 1;
+}
+.manager-actions-page section aside .account-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  width: 100%;
+}
+.manager-actions-page section aside .account-details > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.manager-actions-page section aside .account-details > div .account-detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.manager-actions-page section aside .account-details > div .account-detail-div span:nth-of-type(2) {
+  color: #4b5563;
+}
+.manager-actions-page section aside .account-details > div .account-detail-div span:nth-of-type(2) {
+  font-weight: 600;
+}
+.manager-actions-page section aside .account-details > div hr {
+  border: 0;
+  width: 100%;
+  height: 1px;
+  background: rgb(229, 231, 235);
+}
+.manager-actions-page section aside .account-details > div .form-template {
+  padding: 0rem;
+}
+.manager-actions-page section aside .account-details > div .red-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+}/*# sourceMappingURL=style.css.map */
