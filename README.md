@@ -1,0 +1,7 @@
+![tables page](https://github.com/user-attachments/assets/8b4dc710-f983-4fbe-b118-a35207aa092c)
+![table orders section](https://github.com/user-attachments/assets/2a4c2ac0-8dce-4ef2-a810-deb6398b61a8)
+![data analysis page](https://github.com/user-attachments/assets/a349a293-7adc-4ad6-a3f6-a09be0908ccc)
+![menu page](https://github.com/user-attachments/assets/c40100b2-73c6-4ee9-abf9-6063a63193ff)
+![staff page](https://github.com/user-attachments/assets/fcc114f9-7849-402f-942f-bb91a6bdca76)
+![financial transaction page](https://github.com/user-attachments/assets/d793abf7-3d5e-423d-8ffe-fe2046bb0776)
+![manager actions page](https://github.com/user-attachments/assets/b6ff1fe7-336e-45d8-8fd0-a305a15f097e)
