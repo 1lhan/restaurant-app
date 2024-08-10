@@ -143,14 +143,14 @@ export default function Staff({ user }) {
 
                 <div className="staff-page-header">
                     <h3>Staff</h3>
-                    <button className="btn" onClick={() => { showStaffInfo.value = -1; showAddStaffForm.value = true }}>
+                    <button className="btn" onClick={() => { batch(() => { showStaffInfo.value = -1; showAddStaffForm.value = true }) }}>
                         <i className="fa-solid fa-plus" />
                         <span>Add Staff</span>
                     </button>
                 </div>
 
                 {staff && <Table fieldNames={['name', 'lastname', 'gender', 'phoneNumber', 'identificationNumber', 'role', 'salary', 'startDate', 'terminationDate']} showIndex={true}
-                    onClickBtnFunction={(index) => { showStaffInfo.value = index }}
+                    onClickBtnFunction={(index) => { batch(() => { showStaffInfo.value = index; showAddStaffForm.value = false }) }}
                     data={staff.map(member => ({
                         ...member, salary: member.salary[0].salary, startDate: useFormatDate(member.startDate).slice(0, 10),
                         terminationDate: member.terminationDate ? useFormatDate(member.terminationDate).slice(0, 10) : null

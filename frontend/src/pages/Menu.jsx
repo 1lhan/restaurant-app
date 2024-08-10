@@ -1,4 +1,4 @@
-import { useSignal } from "@preact/signals-react"
+import { batch, useSignal } from "@preact/signals-react"
 import { useFormatDate, usePostRequest } from "../utils"
 import { useQuery } from "@tanstack/react-query"
 import Form from "../components/Form"
@@ -116,13 +116,14 @@ export default function Menu({ user }) {
             <div className="left-side">
                 <div className="menu-page-header">
                     <h3>Menu</h3>
-                    <button className="btn" onClick={() => { showMenuItemDetails.value = -1; showAddMenuItemForm.value = !showAddMenuItemForm.value }}>
+                    <button className="btn" onClick={() => { batch(() => { showMenuItemDetails.value = -1; showAddMenuItemForm.value = !showAddMenuItemForm.value }) }}>
                         <i className="fa-solid fa-plus" />
                         <span>Add Menu Item</span>
                     </button>
                 </div>
 
-                {menu && <Table className='menu-table' fieldNames={['name', 'type', 'price']} showIndex={true} showImage={true} onClickBtnFunction={(index) => { showMenuItemDetails.value = index }}
+                {menu && <Table className='menu-table' fieldNames={['name', 'type', 'price']} showIndex={true} showImage={true}
+                    onClickBtnFunction={(index) => { batch(() => { showMenuItemDetails.value = index; showAddMenuItemForm.value = false }) }}
                     data={menu.map(menuItem => ({ ...menuItem, price: menuItem.price[0].price }))} />}
             </div>
 
